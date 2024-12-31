@@ -1,0 +1,57 @@
+        .div1 {
+            width: 100%;
+            height: 100vh;
+            background: url("https://media2.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif?cid=6c09b952kppn5e0xxnb2k6wgbl7dum6ubmf1uoz03ggdn0po&ep=v1_gifs_search&rid=giphy.gif&ct=g");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: transform 0.3s ease-in-out;
+
+        }
+        .div1 img {
+            width:300px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            
+        }
+        .handwriting {
+            font-family: 'Georgia', serif;
+            font-size: 1.25rem;
+            line-height: 1.6;            
+        }
+        .welcome {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .maindiv {
+            background: url('https://i.makeagif.com/media/4-30-2022/qF0lRx.gif');
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+        }
+        .div2 {
+            background-color: rgb(95, 18, 163);
+            border-radius: 12px;
+
+        }
+      
+        .response {
+            background: rgba(179, 11, 159, 0.8);
+            border-radius: 8px;
+            padding: 8px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .feedback {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .submit-button {
+            display: block;
+            margin: 0 auto; /* Center the button */
+            width: fit-content; /* Adjust width based on the content */
+            padding: 10px 20px; /* Add padding for aesthetics */
+        }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Puzzles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900">
+    <div class="maindiv w-full h-screen flex items-center justify-center">
+        <div class="div2 w-full max-w-xl bg-gray-800 text-white rounded-lg shadow-lg p-6 flex flex-col justify-between">
+            <!-- Puzzle Section -->
+            <h1 class="text-3xl font-bold mb-4 mt-4 text-teal-400 text-center">🧩 New Year Puzzles 🧩</h1>
+            <p class="text-lg text-yellow-400 mb-6 text-center">Solve these puzzles and see how well you do!</p>
+            <form id="puzzleForm">
+                <!-- Puzzle 1 -->
+                <div class="puzzle-container mb-6">
+                    <label id="question1" class="text-lg">🎊 I am celebrated on the same date each year. People stay awake to welcome me, and fireworks light up the sky. What am I?</label>
+                    <input type="text" id="answer1" class="response border border-gray-300 rounded-md p-2 w-full mt-2 text-black" placeholder="Your answer">
+                    <span id="feedback1" class="feedback block mt-2"></span>
+                </div>
+                <!-- Puzzle 2 -->
+                <div class="puzzle-container mb-6">
+                    <label id="question2" class="text-lg">📆 I mark the beginning of a fresh start. My first day brings hope, resolutions, and plans. What am I?</label>
+                    <input type="text" id="answer2" class="response border border-gray-300 rounded-md p-2 w-full mt-2 text-black" placeholder="Your answer">
+                    <span id="feedback2" class="feedback block mt-2"></span>
+                </div>
+                <!-- Puzzle 3 -->
+                <div class="puzzle-container mb-6">
+                    <label id="question2" class="text-lg">🔍 I am not alive, but I grow; I don’t have lungs, but I need air. What am I?</label>
+                    <input type="text" id="answer3" class="response border border-gray-300 rounded-md p-2 w-full mt-2 text-black" placeholder="Your answer">
+                    <span id="feedback3" class="feedback block mt-2"></span>
+                </div>
+                <!-- Submit Button -->
+                <div class="flex justify-center space-x-2">
+                    <button type="button" onclick="evaluateAnswers()" class="submit-button bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-full px-6 py-2 text-lg">Submit</button>
+                </div>
+            </form>
+            
+            
+        </div>
+    </div>
+
+    <!-- Celebration Message -->
+    <div id="celebrationMessage" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="text-center bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-teal-500 mb-4">🎉 Congratulations! 🎉</h2>
+            <p class="text-lg text-gray-700">You solved all the puzzles correctly! Wishing you a wonderful and prosperous New Year! 🥳🎆</p>
+            <button onclick="closeCelebration()" class="mt-4 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-full px-4 py-2">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function evaluateAnswers() {
+            const correctAnswers = ['new year', 'january', 'fire'];
+            const userAnswers = [
+                document.getElementById('answer1').value.trim().toLowerCase(),
+                document.getElementById('answer2').value.trim().toLowerCase(),
+                document.getElementById('answer3').value.trim().toLowerCase()
+            ];
+
+            let allCorrect = true;
+
+            for (let i = 0; i < correctAnswers.length; i++) {
+                const feedbackEl = document.getElementById(`feedback${i + 1}`);
+                
+                // Check if the answer is empty
+                if (!userAnswers[i]) {
+                    feedbackEl.textContent = '⚠ Please provide an answer.';
+                    feedbackEl.style.color = 'orange';
+                    allCorrect = false;
+                } else {
+                    const isCorrect = userAnswers[i] === correctAnswers[i];
+                    feedbackEl.textContent = isCorrect ? '✔ Correct' : '❌ Incorrect';
+                    feedbackEl.style.color = isCorrect ? 'green' : 'red';
+                    if (!isCorrect) allCorrect = false;
+                }
+            }
+
+            // Show celebratory message if all answers are correct
+            if (allCorrect) {
+                document.getElementById('celebrationMessage').classList.remove('hidden');
+            }
+        }
+
+        function closeCelebration() {
+            document.getElementById('celebrationMessage').classList.add('hidden');
+        // Redirect to the home page
+        window.location.href = "index.html"; // Replace "index.html" with the path to your home page
+        }
+    </script>
+</body>
+</html>
